@@ -27,6 +27,6 @@ app.get('/', (req, res) => {
   res.json({ message: 'SymptomSync Backend chal raha hai!' });
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server ${process.env.PORT} pe chal raha hai`);
+app.listen(process.env.PORT || 8000, () => {
+  console.log(`Server chal raha hai`);
 });
