@@ -15,7 +15,7 @@ function Medicine() {
 
   const fetchMedicines = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/api/medicines/all', {
+      const res = await axios.get('https://symptomsync-backend.onrender.com/api/medicines/all', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setList(res.data);
@@ -35,7 +35,7 @@ function Medicine() {
       setMessage('Please fill all fields!'); return;
     }
     try {
-      const res = await axios.post('http://localhost:8000/api/medicines/add',
+      const res = await axios.post('https://symptomsync-backend.onrender.com/api/medicines/add',
         { name, dosage, time, days },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -50,7 +50,7 @@ function Medicine() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/medicines/${id}`, {
+      await axios.delete(`https://symptomsync-backend.onrender.com/api/medicines/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchMedicines();

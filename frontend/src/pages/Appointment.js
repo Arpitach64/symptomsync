@@ -15,7 +15,7 @@ function Appointment() {
 
   const fetchAppointments = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/api/appointments/all', {
+      const res = await axios.get('https://symptomsync-backend.onrender.com/api/appointments/all', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setList(res.data);
@@ -29,7 +29,7 @@ function Appointment() {
       setMessage('Doctor name, date and time are required!'); return;
     }
     try {
-      const res = await axios.post('http://localhost:8000/api/appointments/add',
+      const res = await axios.post('https://symptomsync-backend.onrender.com/api/appointments/add',
         { doctorName, specialization, date, time, notes },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -42,7 +42,7 @@ function Appointment() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/appointments/${id}`, {
+      await axios.delete(`https://symptomsync-backend.onrender.com/api/appointments/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchAppointments();

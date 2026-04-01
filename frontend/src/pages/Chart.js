@@ -10,7 +10,7 @@ function Chart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/api/symptoms/all', {
+        const res = await axios.get('https://symptomsync-backend.onrender.com/api/symptoms/all', {
           headers: { Authorization: `Bearer ${token}` }
         });
         const reversed = res.data.reverse();

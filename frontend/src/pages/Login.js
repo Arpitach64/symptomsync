@@ -11,7 +11,7 @@ function Login() {
     if (!email || !password) { setMessage('Please fill all fields!'); return; }
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:8000/api/auth/login', { email, password });
+      const res = await axios.post('https://symptomsync-backend.onrender.com/api/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       window.location.href = '/dashboard';

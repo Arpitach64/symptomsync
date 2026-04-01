@@ -21,9 +21,9 @@ function Profile() {
     const fetchData = async () => {
       try {
         const [symptoms, medicines, appointments] = await Promise.all([
-          axios.get('http://localhost:8000/api/symptoms/all', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('http://localhost:8000/api/medicines/all', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('http://localhost:8000/api/appointments/all', { headers: { Authorization: `Bearer ${token}` } })
+          axios.get('https://symptomsync-backend.onrender.com/api/symptoms/all', { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get('https://symptomsync-backend.onrender.com/api/medicines/all', { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get('https://symptomsync-backend.onrender.com/api/appointments/all', { headers: { Authorization: `Bearer ${token}` } })
         ]);
         setSymptomCount(symptoms.data.length);
         setMedicineCount(medicines.data.length);

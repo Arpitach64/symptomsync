@@ -14,7 +14,7 @@ function Signup() {
     if (password.length < 6) { setMessage('Password must be at least 6 characters!'); return; }
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:8000/api/auth/signup', { name, email, password });
+      const res = await axios.post('https://symptomsync-backend.onrender.com/api/auth/signup', { name, email, password });
       setSuccess(true);
       setMessage(res.data.message);
       setTimeout(() => window.location.href = '/', 2000);

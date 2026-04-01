@@ -26,7 +26,7 @@ function Dashboard() {
 
   const fetchSymptoms = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/api/symptoms/all', {
+      const res = await axios.get('https://symptomsync-backend.onrender.com/api/symptoms/all', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setList(res.data);
@@ -49,7 +49,7 @@ function Dashboard() {
   const handleAdd = async () => {
     if (!symptoms) return;
     try {
-      await axios.post('http://localhost:8000/api/symptoms/add',
+      await axios.post('https://symptomsync-backend.onrender.com/api/symptoms/add',
         { symptoms, severity, notes },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -62,7 +62,7 @@ function Dashboard() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/symptoms/${id}`, {
+      await axios.delete(`https://symptomsync-backend.onrender.com/api/symptoms/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchSymptoms();
@@ -73,7 +73,7 @@ function Dashboard() {
     if (!symptoms) { setMessage('Please enter symptoms first!'); return; }
     setLoadingAI(true);
     try {
-      const res = await axios.post('http://localhost:8000/api/ai/suggest',
+      const res = await axios.post('https://symptomsync-backend.onrender.com/api/ai/suggest',
         { symptoms },
         { headers: { Authorization: `Bearer ${token}` } }
       );
